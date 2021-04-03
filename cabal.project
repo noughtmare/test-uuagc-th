@@ -4,5 +4,5 @@ packages:
 source-repository-package
     type: git
     location: https://github.com/noughtmare/uuagc.git
-    tag: 6a3cf0e2175bbaeefd3ac4a2e6518e9f6195fb74
+    tag: 78c2037539c627a35f3f028029e6064b7d82d3fb
     subdir: uuagc/trunk

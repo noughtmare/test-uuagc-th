@@ -1,0 +1,4 @@
+cradle:
+  cabal:
+    - path: "./app"
+      component: "test-uuagc-th:exe:test-uuagc-th"

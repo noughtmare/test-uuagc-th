@@ -1,16 +1,17 @@
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE QuasiQuotes #-}
-{-# OPTIONS_GHC -ddump-splices #-}
+{-# LANGUAGE TemplateHaskell, QuasiQuotes #-}
 module Main where
 
 import UU.UUAGC (uuagcTH)
 import Text.RawString.QQ
 
-pure $ either error id $ uuagcTH ["--data"] [r|
-DATA Test
-  | Test a : Int b : Bool
-  | Cool c : String d : {[Int]}
+uuagcTH ["haskellsyntax","data"] [r|
+data Tree
+  | Node left  :: Tree
+         right :: Tree
+  | Tip  value :: Int
+
+deriving Tree : Show
 |]
 
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = print (Node (Tip 1) (Node (Tip 2) (Tip 3)))
