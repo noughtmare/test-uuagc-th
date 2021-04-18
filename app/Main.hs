@@ -4,22 +4,15 @@ module Main where
 
 import UU.UUAGC (uuagcTH)
 import Text.RawString.QQ
+import Data
 
-uuagcTH ["haskellsyntax","data","signatures","catas","wrappers","semfuns"] [r|
-data Tree
-  | Node left  :: Tree
-         right :: Tree
-  | Tip  value :: Int
-
-
+uuagcTH "sem" ["haskellsyntax","signatures","catas","wrappers","semfuns"] [dat] [r|
 attr Tree
   syn max :: {Int}
 
 sem Tree
   | Node lhs.max = max @left.max @right.max
   | Tip  lhs.max = @value
-
-deriving Tree : Show
 |]
 
 main :: IO ()
